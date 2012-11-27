@@ -31,11 +31,21 @@ and View classes._
     ]);
     
     view = new Backbone.CollectionView( collection );
-    view.comparator = function( a, b ) { ... }
+    view.comparator = function( a, b ) {
+        a = a.get( "name" );
+        b = b.get( "name" );
+        
+        if ( a > b ) return 1;
+        if ( a < b ) return -1;
+        return 0;
+    };
     view.filter = function( item ) {
         // Filter all users whose names begin with the letter P.
         return item.get( "name" ).charAt( 0 ) === "P";
-    }
+    };
     
     // Must be called after setting the sort comparator or filter functions.
     view.refresh();
+
+    // Logs "Paul, Peter".
+    console.log( view.map( function( user ) { return user.get( "name" ); } ).join( ", " ) );
