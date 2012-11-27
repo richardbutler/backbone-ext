@@ -63,17 +63,6 @@
         },
         
         /**
-         * @see Backbone.Collection.create
-         */
-        create: function( models, options ) {
-            models = this._collection.create( models, options );
-            
-            Collection.prototype.add.call( this, models, options );
-            
-            return models;
-        },
-        
-        /**
          * Resets and refreshes the CollectionView based on the collection,
          * performing relevant sorting and filtering in the process.
          */

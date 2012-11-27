@@ -59,6 +59,6 @@ describe( "Backbone.CollectionView", function() {
             expect( collection.at( 5 ).get( "name" ) ).toBe( "Poppy" );
         });
     
-    })
+    });
     
 });
